@@ -1,0 +1,982 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>ร่วมงานตักบาตรพระหมื่นรูป กาญจนบุรี</title>
+  <meta name="description" content="แบบฟอร์มแสดงความจำนงร่วมมหากุศล โครงการตักบาตรพระ 10,000 รูป ฉลองครบ 195 ปี จังหวัดกาญจนบุรี" />
+  <meta name="theme-color" content="#A7C7E7" />
+
+  <!-- ไอคอนแสดงบนแถบเบราว์เซอร์ (Favicon) แทนรูปลูกโลก -->
+  <link rel="icon" type="image/png" href="https://i.ibb.co/jZJvt8Kt/image.png" />
+  <link rel="shortcut icon" type="image/png" href="https://i.ibb.co/jZJvt8Kt/image.png" />
+  <link rel="apple-touch-icon" href="https://i.ibb.co/jZJvt8Kt/image.png" />
+
+  <meta property="og:title" content="ร่วมงานตักบาตรพระหมื่นรูป กาญจนบุรี" />
+  <meta property="og:description" content="19 ธ.ค. 2569 • 06.00-08.30 น. • Sky Walk กาญจนบุรี" />
+  <meta property="og:image" content="https://i.ibb.co/jZJvt8Kt/image.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="ร่วมงานตักบาตรพระหมื่นรูป กาญจนบุรี" />
+  <meta name="twitter:description" content="19 ธ.ค. 2569 • 06.00-08.30 น. • Sky Walk กาญจนบุรี" />
+  <meta name="twitter:image" content="https://i.ibb.co/jZJvt8Kt/image.png" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Mitr:wght@400;500;600&family=Noto+Sans+Thai:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ==========================================================================
+       SET A : THEME TOKENS (แก้สีธีมได้ที่นี่ที่เดียว)
+       ========================================================================== */
+    :root {
+      --c-primary:      #6FA8DC;   /* น้ำเงินพาสเทลหลัก */
+      --c-primary-dark: #3D7BB8;
+      --c-primary-ink:  #1E3A5F;   /* ตัวอักษรเข้ม */
+      --c-sky:          #A7C7E7;
+      --c-baby:         #D6E8F8;
+      --c-mist:         #EEF5FC;
+      --c-lilac:        #C9C6F5;   /* accent ม่วงพาสเทล */
+      --c-mint:         #BDEBD9;   /* accent มิ้นต์ */
+      --c-peach:        #FFD9C7;   /* accent พีช */
+      --c-gold:         #F6C86B;
+      --c-white:        #FFFFFF;
+      --c-text:         #27405E;
+      --c-muted:        #6B819B;
+      --c-danger:       #E86B7A;
+
+      --radius-lg: 28px;
+      --radius-md: 20px;
+      --radius-sm: 14px;
+      --shadow-soft: 0 10px 30px -10px rgba(61, 123, 184, .35);
+      --shadow-pop:  0 6px 0 0 var(--c-primary-ink);
+      --font-head: 'Mitr', 'Noto Sans Thai', sans-serif;
+      --font-body: 'Noto Sans Thai', system-ui, sans-serif;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0; font-family: var(--font-body); color: var(--c-text);
+      background: linear-gradient(180deg, var(--c-mist) 0%, var(--c-baby) 55%, #E4ECFF 100%);
+      min-height: 100vh; overflow-x: hidden; -webkit-font-smoothing: antialiased;
+    }
+    h1, h2, h3, h4 { font-family: var(--font-head); color: var(--c-primary-ink); margin: 0; font-weight: 600; }
+    img { max-width: 100%; display: block; }
+    button { font-family: inherit; cursor: pointer; }
+
+    /* ---------- blobs background ---------- */
+    .blob { position: fixed; border-radius: 50%; filter: blur(60px); opacity: .55; z-index: -1; pointer-events: none; }
+    .blob.b1 { width: 340px; height: 340px; background: var(--c-sky);   top: -80px;  left: -100px; animation: float 14s ease-in-out infinite; }
+    .blob.b2 { width: 280px; height: 280px; background: var(--c-lilac); top: 40%;    right: -120px; animation: float 18s ease-in-out infinite reverse; }
+    .blob.b3 { width: 260px; height: 260px; background: var(--c-mint);  bottom: -80px; left: 20%;  animation: float 16s ease-in-out infinite; }
+    @keyframes float { 0%,100% { transform: translate(0,0) scale(1);} 50% { transform: translate(30px,-30px) scale(1.08);} }
+
+    .wrap { max-width: 760px; margin: 0 auto; padding: 20px 18px 120px; }
+
+    /* ---------- top bar ---------- */
+    .topbar {
+      position: sticky; top: 0; z-index: 30; display: flex; align-items: center; gap: 10px;
+      padding: 12px 18px; backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px);
+      background: rgba(238, 245, 252, .72); border-bottom: 1px solid rgba(167, 199, 231, .5);
+    }
+    .topbar .logo { width: 38px; height: 38px; border-radius: 12px; display: grid; place-items: center;
+      background: linear-gradient(135deg, var(--c-sky), var(--c-lilac)); font-size: 20px; box-shadow: var(--shadow-soft); overflow: hidden; }
+    .topbar .logo img { width: 100%; height: 100%; object-fit: cover; }
+    .topbar .name { font-family: var(--font-head); font-weight: 600; color: var(--c-primary-ink); font-size: 15px; line-height: 1.2; }
+    .topbar .name small { display: block; font-family: var(--font-body); font-weight: 400; color: var(--c-muted); font-size: 12px; }
+    .topbar .back { margin-left: auto; border: 0; background: var(--c-white); color: var(--c-primary-ink);
+      padding: 8px 14px; border-radius: 999px; font-weight: 600; box-shadow: var(--shadow-soft); display: none; }
+
+    /* ---------- generic card ---------- */
+    .card {
+      background: rgba(255,255,255,.78); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+      border: 1.5px solid rgba(255,255,255,.9); border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-soft); padding: 22px; margin-bottom: 18px;
+    }
+
+    .chip { display: inline-flex; align-items: center; gap: 6px; padding: 6px 12px; border-radius: 999px;
+      background: var(--c-white); color: var(--c-primary-ink); font-size: 13px; font-weight: 600;
+      border: 1.5px solid var(--c-sky); }
+
+    /* ==========================================================================
+       HOME
+       ========================================================================== */
+    .hero { text-align: center; padding: 18px 4px 6px; }
+    .hero .badge { margin-bottom: 14px; animation: pop .6s ease both; }
+    .hero h1 { font-size: clamp(26px, 6.5vw, 40px); line-height: 1.25; }
+    .hero h1 .hl { background: linear-gradient(120deg, var(--c-primary-dark), #7C6FE0);
+      -webkit-background-clip: text; background-clip: text; color: transparent; }
+    .hero p.sub { color: var(--c-muted); margin: 10px 0 16px; font-size: 15px; }
+    .meta { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; }
+
+    /* gallery */
+    .gallery { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin: 22px 0; }
+    .gallery figure { margin: 0; position: relative; border-radius: var(--radius-md); overflow: hidden;
+      background: var(--c-white); box-shadow: var(--shadow-soft); cursor: zoom-in; transition: transform .25s; }
+    .gallery figure:hover { transform: translateY(-4px) rotate(-.6deg); }
+    .gallery figure:nth-child(2):hover { transform: translateY(-4px) rotate(.6deg); }
+    .gallery img { width: 100%; aspect-ratio: 2/3; object-fit: cover; }
+    .gallery figcaption { position: absolute; left: 10px; bottom: 10px; }
+    @media (max-width: 480px) { .gallery { grid-template-columns: 1fr; } }
+
+    /* tiers */
+    .section-title { display: flex; align-items: center; gap: 10px; margin: 8px 0 14px; }
+    .section-title h2 { font-size: 22px; }
+    .section-title .spark { font-size: 24px; animation: wiggle 2.4s ease-in-out infinite; }
+    @keyframes wiggle { 0%,100% { transform: rotate(0);} 25% { transform: rotate(-12deg);} 75% { transform: rotate(12deg);} }
+
+    .tier { display: flex; gap: 16px; align-items: center; padding: 18px; border-radius: var(--radius-md);
+      background: var(--c-white); margin-bottom: 12px; border: 2px solid transparent; position: relative;
+      transition: transform .2s, border-color .2s; animation: up .5s ease both; }
+    .tier:hover { transform: translateX(4px); border-color: var(--c-sky); }
+    .tier .num { flex: 0 0 56px; height: 56px; border-radius: 18px; display: grid; place-items: center;
+      font-family: var(--font-head); font-size: 24px; font-weight: 600; color: var(--c-primary-ink); }
+    .tier.t1 .num { background: linear-gradient(135deg, #FFE7A8, var(--c-gold)); }
+    .tier.t2 .num { background: linear-gradient(135deg, var(--c-baby), var(--c-sky)); }
+    .tier.t3 .num { background: linear-gradient(135deg, #E6E4FF, var(--c-lilac)); }
+    .tier h3 { font-size: 19px; }
+    .tier h3 b { color: var(--c-primary-dark); }
+    .tier p { margin: 4px 0 0; color: var(--c-muted); font-size: 14px; }
+    .tier .tag { position: absolute; top: -10px; right: 14px; background: var(--c-primary-ink); color: #fff;
+      font-size: 11px; padding: 3px 10px; border-radius: 999px; font-weight: 600; }
+    .tier:nth-child(2) { animation-delay: .08s; } .tier:nth-child(3) { animation-delay: .16s; } .tier:nth-child(4) { animation-delay: .24s; }
+
+    /* CTA */
+    .btn {
+      display: inline-flex; align-items: center; justify-content: center; gap: 10px; border: 2.5px solid var(--c-primary-ink);
+      background: linear-gradient(135deg, var(--c-sky), var(--c-primary)); color: var(--c-primary-ink);
+      font-family: var(--font-head); font-size: 18px; font-weight: 600; padding: 15px 28px; border-radius: 999px;
+      box-shadow: var(--shadow-pop); transition: transform .12s, box-shadow .12s;
+    }
+    .btn:hover { transform: translateY(-2px); box-shadow: 0 8px 0 0 var(--c-primary-ink); }
+    .btn:active { transform: translateY(4px); box-shadow: 0 2px 0 0 var(--c-primary-ink); }
+    .btn[disabled] { opacity: .65; pointer-events: none; }
+    .btn.block { width: 100%; }
+    .btn.ghost { background: var(--c-white); }
+
+    .cta-dock { position: fixed; left: 0; right: 0; bottom: 0; z-index: 25; padding: 14px 18px calc(14px + env(safe-area-inset-bottom));
+      background: linear-gradient(180deg, rgba(228,236,255,0), rgba(228,236,255,.95) 40%); }
+    .cta-dock .btn { max-width: 724px; margin: 0 auto; display: flex; width: 100%; }
+    .pulse { animation: pulse 2.2s infinite; }
+    @keyframes pulse { 0%,100% { filter: drop-shadow(0 0 0 rgba(111,168,220,.0)); } 50% { filter: drop-shadow(0 0 14px rgba(111,168,220,.8)); } }
+
+    /* ==========================================================================
+       FORM
+       ========================================================================== */
+    .form-head { text-align: center; padding: 6px 0 4px; }
+    .form-head h1 { font-size: clamp(20px, 5vw, 26px); line-height: 1.35; }
+    .form-head .proj { font-family: var(--font-head); color: var(--c-primary-dark); font-size: 16px; margin: 8px 0 6px; }
+    .form-head p { margin: 0; color: var(--c-muted); font-size: 14px; }
+
+    .progress { height: 10px; background: var(--c-white); border-radius: 999px; overflow: hidden; margin: 16px 0 20px; border: 1.5px solid var(--c-sky); }
+    .progress span { display: block; height: 100%; width: 0; background: linear-gradient(90deg, var(--c-sky), var(--c-primary), var(--c-lilac)); transition: width .35s; }
+
+    .step-head { display: flex; align-items: center; gap: 10px; margin-bottom: 14px; }
+    .step-head .ico { width: 40px; height: 40px; border-radius: 14px; display: grid; place-items: center; font-size: 20px;
+      background: linear-gradient(135deg, var(--c-baby), var(--c-sky)); }
+    .step-head h3 { font-size: 17px; line-height: 1.3; }
+
+    .field { margin-bottom: 14px; }
+    .field label.lbl { display: block; font-weight: 600; font-size: 14px; margin-bottom: 6px; color: var(--c-primary-ink); }
+    .field label.lbl .req { color: var(--c-danger); }
+    .input, textarea.input, select.input {
+      width: 100%; font: inherit; font-size: 16px; color: var(--c-text); padding: 13px 16px; border-radius: var(--radius-sm);
+      border: 2px solid var(--c-baby); background: var(--c-white); outline: none; transition: border-color .2s, box-shadow .2s;
+    }
+    .input:focus { border-color: var(--c-primary); box-shadow: 0 0 0 4px rgba(111,168,220,.25); }
+    .input.err { border-color: var(--c-danger); box-shadow: 0 0 0 4px rgba(232,107,122,.15); }
+    textarea.input { resize: vertical; min-height: 80px; }
+    .hint { font-size: 12.5px; color: var(--c-muted); margin-top: 6px; }
+    .err-msg { font-size: 12.5px; color: var(--c-danger); margin-top: 6px; display: none; }
+    .field.has-err > .err-msg { display: block; }
+
+    /* option tiles (checkbox / radio) */
+    .opts { display: grid; gap: 10px; }
+    .opt { position: relative; }
+    .opt input { position: absolute; opacity: 0; pointer-events: none; }
+    .opt .tile { display: flex; align-items: center; gap: 12px; padding: 14px 16px; border-radius: var(--radius-sm);
+      background: var(--c-white); border: 2px solid var(--c-baby); cursor: pointer; transition: all .18s; user-select: none; }
+    .opt .tile:hover { border-color: var(--c-sky); }
+    .opt .box { flex: 0 0 24px; height: 24px; border-radius: 8px; border: 2px solid var(--c-sky); display: grid; place-items: center;
+      background: var(--c-white); transition: all .18s; font-size: 14px; color: transparent; }
+    .opt input[type=radio] + .tile .box { border-radius: 50%; }
+    .opt .t-main { font-weight: 600; color: var(--c-primary-ink); }
+    .opt .t-sub { display: block; font-size: 12.5px; color: var(--c-muted); font-weight: 400; margin-top: 2px; }
+    .opt .emo { margin-left: auto; font-size: 20px; }
+    .opt input:checked + .tile { border-color: var(--c-primary); background: linear-gradient(135deg, #F4F9FF, var(--c-baby)); box-shadow: 0 4px 0 0 var(--c-sky); }
+    .opt input:checked + .tile .box { background: var(--c-primary); border-color: var(--c-primary); color: #fff; }
+    .opt input:focus-visible + .tile { box-shadow: 0 0 0 4px rgba(111,168,220,.35); }
+
+    .sub-fields { margin: 10px 0 2px 18px; padding: 14px; border-left: 3px dashed var(--c-sky); display: none; animation: up .3s ease; }
+    .sub-fields.show { display: block; }
+
+    .note { display: flex; gap: 10px; padding: 12px 14px; border-radius: var(--radius-sm); background: #FFF6EC; border: 1.5px dashed var(--c-peach);
+      font-size: 13.5px; color: #8A5A3C; margin-top: 12px; }
+
+    .bank { display: flex; align-items: center; gap: 12px; padding: 12px 14px; border-radius: var(--radius-sm); background: var(--c-mist); margin-top: 8px; flex-wrap: wrap; }
+    .bank .k-logo { width: 38px; height: 38px; border-radius: 12px; background: #138F2D; color: #fff; font-weight: 700; display: grid; place-items: center; font-family: var(--font-head); }
+    .bank .acc { font-family: var(--font-head); font-size: 18px; color: var(--c-primary-ink); letter-spacing: .5px; }
+    .bank small { display: block; color: var(--c-muted); font-size: 12px; }
+    .copy { margin-left: auto; border: 1.5px solid var(--c-primary); background: #fff; color: var(--c-primary-dark); padding: 6px 12px; border-radius: 999px; font-weight: 600; font-size: 13px; }
+
+    /* ---------- upload slip ---------- */
+    .drop { position: relative; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 6px; text-align: center;
+      padding: 22px 16px; border-radius: var(--radius-md); border: 2.5px dashed var(--c-sky); background: linear-gradient(135deg, #F7FBFF, var(--c-mist));
+      cursor: pointer; transition: all .2s; }
+    .drop:hover, .drop.drag { border-color: var(--c-primary); background: var(--c-baby); transform: translateY(-2px); }
+    .drop .d-ico { font-size: 34px; animation: wiggle 2.6s ease-in-out infinite; }
+    .drop .d-main { font-family: var(--font-head); color: var(--c-primary-ink); font-size: 16px; }
+    .drop .d-sub { font-size: 12.5px; color: var(--c-muted); }
+    .drop input { position: absolute; inset: 0; opacity: 0; cursor: pointer; }
+    .drop[hidden] { display: none; }
+    .field.has-err .drop { border-color: var(--c-danger); }
+
+    .preview { display: none; align-items: center; gap: 12px; padding: 10px; border-radius: var(--radius-md); background: #fff; border: 2px solid var(--c-primary);
+      box-shadow: 0 4px 0 0 var(--c-sky); animation: pop .3s ease; }
+    .preview.show { display: flex; }
+    .preview .thumb { flex: 0 0 72px; height: 72px; border-radius: 14px; overflow: hidden; background: var(--c-mist); display: grid; place-items: center; font-size: 30px; cursor: zoom-in; }
+    .preview .thumb img { width: 100%; height: 100%; object-fit: cover; }
+    .preview .info { flex: 1; min-width: 0; }
+    .preview .fname { font-weight: 600; color: var(--c-primary-ink); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; font-size: 14px; }
+    .preview .fsize { font-size: 12.5px; color: var(--c-muted); }
+    .preview .ok { font-size: 12px; color: #2E9E6A; font-weight: 600; }
+    .preview .rm { border: 0; background: #FFECEF; color: var(--c-danger); width: 40px; height: 40px; border-radius: 12px; font-size: 18px; }
+
+    .stepper { display: flex; align-items: center; gap: 0; width: 170px; border: 2px solid var(--c-baby); border-radius: 999px; overflow: hidden; background: #fff; }
+    .stepper button { width: 48px; height: 46px; border: 0; background: var(--c-mist); font-size: 22px; color: var(--c-primary-ink); font-weight: 700; }
+    .stepper input { flex: 1; width: 100%; border: 0; text-align: center; font: inherit; font-size: 18px; font-weight: 600; outline: none; color: var(--c-primary-ink); }
+
+    .total-box { display: flex; justify-content: space-between; align-items: center; padding: 14px 16px; border-radius: var(--radius-sm);
+      background: linear-gradient(135deg, var(--c-primary-ink), #35618F); color: #fff; margin-top: 14px; }
+    .total-box b { font-family: var(--font-head); font-size: 22px; }
+
+    /* ==========================================================================
+       MODAL / LIGHTBOX / TOAST
+       ========================================================================== */
+    .overlay { position: fixed; inset: 0; z-index: 60; background: rgba(30, 58, 95, .55); backdrop-filter: blur(6px);
+      display: none; align-items: center; justify-content: center; padding: 20px; }
+    .overlay.show { display: flex; animation: fade .2s ease; }
+    .lightbox img { max-height: 88vh; width: auto; border-radius: var(--radius-md); box-shadow: 0 20px 50px rgba(0,0,0,.35); }
+    .lightbox .x { position: absolute; top: 16px; right: 16px; width: 44px; height: 44px; border-radius: 50%; border: 0; background: #fff; font-size: 20px; }
+
+    .modal { background: #fff; border-radius: var(--radius-lg); max-width: 420px; width: 100%; padding: 28px 22px; text-align: center; animation: pop .35s ease; position: relative; overflow: hidden; }
+    .modal .big { font-size: 64px; line-height: 1; margin-bottom: 10px; }
+    .modal h2 { font-size: 22px; margin-bottom: 6px; }
+    .modal p { color: var(--c-muted); margin: 6px 0; }
+    .modal .ref { display: inline-block; margin: 12px 0; padding: 10px 18px; border-radius: 14px; background: var(--c-mist); border: 2px dashed var(--c-primary);
+      font-family: var(--font-head); font-size: 20px; color: var(--c-primary-ink); letter-spacing: 1px; }
+    .modal .sum { text-align: left; background: var(--c-mist); border-radius: 14px; padding: 12px 14px; font-size: 14px; margin: 10px 0 18px; }
+    .modal .sum div { padding: 3px 0; }
+
+    .toast { position: fixed; left: 50%; bottom: 100px; transform: translateX(-50%) translateY(20px); z-index: 80; opacity: 0;
+      background: var(--c-primary-ink); color: #fff; padding: 12px 20px; border-radius: 999px; font-size: 14px; transition: all .3s; pointer-events: none; max-width: 90vw; text-align: center; }
+    .toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
+    .toast.error { background: var(--c-danger); }
+
+    .spinner { width: 20px; height: 20px; border: 3px solid rgba(30,58,95,.25); border-top-color: var(--c-primary-ink); border-radius: 50%; animation: spin .8s linear infinite; }
+
+    .confetti { position: absolute; width: 10px; height: 14px; top: -20px; border-radius: 3px; animation: drop 2.2s ease-in forwards; }
+
+    footer { text-align: center; color: var(--c-muted); font-size: 12.5px; margin-top: 26px; }
+
+    .view { display: none; }
+    .view.active { display: block; animation: fade .35s ease; }
+
+    @keyframes fade { from { opacity: 0; } to { opacity: 1; } }
+    @keyframes up   { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: none; } }
+    @keyframes pop  { 0% { opacity: 0; transform: scale(.85); } 70% { transform: scale(1.04); } 100% { opacity: 1; transform: scale(1); } }
+    @keyframes spin { to { transform: rotate(360deg); } }
+    @keyframes drop { to { transform: translateY(520px) rotate(540deg); opacity: 0; } }
+
+    @media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation: none !important; transition: none !important; } }
+  </style>
+</head>
+
+<body>
+  <div class="blob b1"></div><div class="blob b2"></div><div class="blob b3"></div>
+
+  <!-- ================= TOP BAR ================= -->
+  <header class="topbar">
+    <div class="logo">
+      <img src="https://i.ibb.co/jZJvt8Kt/image.png" alt="โลโก้โครงการ" />
+    </div>
+    <div class="name"><span data-bind="APP_NAME"></span><small data-bind="EVENT_SHORT"></small></div>
+    <button class="back" id="btnBack" type="button">← หน้าแรก</button>
+  </header>
+
+  <!-- ================= HOME ================= -->
+  <main class="wrap view active" id="viewHome">
+    <section class="hero">
+      <span class="chip badge">✨ ฉลองครบ 195 ปี จังหวัดกาญจนบุรี</span>
+      <h1>ร่วมงาน<span class="hl">ตักบาตรพระ<br/>หมื่นรูป</span> กาญจนบุรี</h1>
+      <p class="sub" data-bind="EVENT_TITLE"></p>
+      <div class="meta">
+        <span class="chip">📅 <span data-bind="EVENT_DATE_SHORT"></span></span>
+        <span class="chip">⏰ <span data-bind="EVENT_TIME"></span></span>
+        <span class="chip">📍 <span data-bind="EVENT_LOCATION"></span></span>
+      </div>
+    </section>
+
+    <section class="gallery" id="gallery"><!-- render by JS --></section>
+
+    <section class="card">
+      <div class="section-title"><span class="spark">🪷</span><h2>ร่วมเป็นเจ้าภาพ</h2></div>
+      <div id="tierList"><!-- render by JS --></div>
+      <div class="note">💡 <span>ท่านสามารถสนับสนุนเป็นผลิตภัณฑ์ตามสัดส่วนมูลค่าของกองบุญข้างต้นตามความเหมาะสม</span></div>
+    </section>
+
+    <footer>
+      <div data-bind="APP_NAME"></div>
+      <div>สอบถามข้อมูลเพิ่มเติม <span data-bind="CONTACT"></span></div>
+    </footer>
+
+    <div class="cta-dock">
+      <button class="btn pulse" id="btnJoin" type="button">🙏 เข้าร่วมงานตักบาตร</button>
+    </div>
+  </main>
+
+  <!-- ================= FORM ================= -->
+  <main class="wrap view" id="viewForm">
+    <section class="form-head">
+      <h1>แบบฟอร์มแสดงความจำนงร่วมมหากุศลและสนับสนุน</h1>
+      <div class="proj" data-bind="EVENT_TITLE"></div>
+      <p><span data-bind="EVENT_DATE"></span> เวลา <span data-bind="EVENT_TIME"></span><br/>ณ <span data-bind="EVENT_LOCATION"></span></p>
+    </section>
+
+    <div class="progress"><span id="progressBar"></span></div>
+
+    <form id="regForm" novalidate autocomplete="on">
+
+      <!-- ---------- ข้อมูลเจ้าภาพ ---------- -->
+      <section class="card">
+        <div class="step-head"><div class="ico">🏢</div><h3>ข้อมูลเจ้าภาพ</h3></div>
+
+        <div class="field" data-field="company">
+          <label class="lbl" for="company">ชื่อหน่วยงาน/บริษัท/เจ้าภาพ <span class="req">*</span></label>
+          <input class="input" id="company" name="company" type="text" placeholder="เช่น บริษัท ใจบุญ จำกัด" autocomplete="organization" />
+          <div class="err-msg">กรุณากรอกชื่อบริษัท/เจ้าภาพ</div>
+        </div>
+        <div class="field" data-field="coordinator">
+          <label class="lbl" for="coordinator">ผู้ประสานงาน <span class="req">*</span></label>
+          <input class="input" id="coordinator" name="coordinator" type="text" placeholder="ชื่อ-นามสกุล" autocomplete="name" />
+          <div class="err-msg">กรุณากรอกชื่อผู้ประสานงาน</div>
+        </div>
+        <div class="field" data-field="phone">
+          <label class="lbl" for="phone">โทรศัพท์ <span class="req">*</span></label>
+          <input class="input" id="phone" name="phone" type="tel" inputmode="tel" placeholder="08x-xxx-xxxx" maxlength="15" autocomplete="tel" />
+          <div class="err-msg">กรุณากรอกเบอร์โทรศัพท์ให้ถูกต้อง (9-10 หลัก)</div>
+        </div>
+      </section>
+
+      <!-- ---------- 1. การสนับสนุน ---------- -->
+      <section class="card">
+        <div class="step-head"><div class="ico">💝</div><h3>1. มีความประสงค์ร่วมสนับสนุนการดำเนินงาน ดังนี้ <span class="req" style="color:var(--c-danger)">*</span></h3></div>
+        <div class="field" data-field="support">
+          <div class="opts" id="supportOpts"><!-- render by JS --></div>
+          <div class="sub-fields" id="productFields">
+            <div class="field" data-field="productDetail">
+              <label class="lbl" for="productDetail">ระบุผลิตภัณฑ์ (น้ำดื่ม/เครื่องดื่ม/อื่นๆ) <span class="req">*</span></label>
+              <input class="input" id="productDetail" name="productDetail" type="text" placeholder="เช่น น้ำดื่มขนาด 600 ml" />
+              <div class="err-msg">กรุณาระบุผลิตภัณฑ์</div>
+            </div>
+            <div class="field">
+              <label class="lbl" for="productValue">มูลค่าประมาณการ/จำนวน</label>
+              <input class="input" id="productValue" name="productValue" type="text" placeholder="เช่น 200 แพ็ค / ≈ 10,000 บาท" />
+            </div>
+          </div>
+          <div class="err-msg">กรุณาเลือกอย่างน้อย 1 รายการ</div>
+          <div class="total-box" id="totalBox" hidden><span>ยอดกองบุญรวม</span><b id="totalAmount">0 บาท</b></div>
+          <div class="note">📝 <span><b>หมายเหตุ:</b> ท่านสามารถสนับสนุนเป็นผลิตภัณฑ์ตามสัดส่วนมูลค่าของกองบุญข้างต้นตามความเหมาะสม</span></div>
+        </div>
+      </section>
+
+      <!-- ---------- 2. การเข้าร่วมพิธี ---------- -->
+      <section class="card">
+        <div class="step-head"><div class="ico">🙏</div><h3>2. การยืนยันเข้าร่วมพิธีในวันงาน <span class="req" style="color:var(--c-danger)">*</span></h3></div>
+        <div class="field" data-field="attend">
+          <div class="opts" id="attendOpts"><!-- render by JS --></div>
+          <div class="sub-fields" id="delegateFields">
+            <div class="field" data-field="delegateName">
+              <label class="lbl" for="delegateName">ชื่อ-นามสกุล ตัวแทน <span class="req">*</span></label>
+              <input class="input" id="delegateName" name="delegateName" type="text" placeholder="ชื่อ-นามสกุล ตัวแทน" />
+              <div class="err-msg">กรุณาระบุชื่อตัวแทน</div>
+            </div>
+          </div>
+          <div class="err-msg">กรุณาเลือกการเข้าร่วมพิธี</div>
+        </div>
+      </section>
+
+      <!-- ---------- 3. ผู้ติดตาม ---------- -->
+      <section class="card">
+        <div class="step-head"><div class="ico">👥</div><h3>3. จำนวนผู้ติดตาม <small style="font-weight:400;color:var(--c-muted)">(เพื่อจัดเตรียมที่นั่งและอาหารรับรอง)</small></h3></div>
+        <div class="field">
+          <div class="stepper">
+            <button type="button" data-step="-1" aria-label="ลด">−</button>
+            <input id="followers" name="followers" type="number" inputmode="numeric" min="0" value="0" aria-label="จำนวนผู้ติดตาม" />
+            <button type="button" data-step="1" aria-label="เพิ่ม">+</button>
+          </div>
+          <div class="hint">หน่วย: คน</div>
+        </div>
+      </section>
+
+      <!-- ---------- การส่งมอบ ---------- -->
+      <section class="card">
+        <div class="step-head"><div class="ico">📦</div><h3>การส่งมอบผลิตภัณฑ์/ปัจจัย</h3></div>
+        <div class="field">
+          <div class="opts">
+            <label class="opt">
+              <input type="checkbox" name="delivery" value="TRANSFER" />
+              <span class="tile"><span class="box">✓</span>
+                <span><span class="t-main">โอนปัจจัยเข้าบัญชี</span><span class="t-sub" data-bind="BANK_LINE"></span></span>
+                <span class="emo">💸</span></span>
+            </label>
+            <div class="sub-fields" id="transferFields">
+              <div class="bank">
+                <div class="k-logo">K</div>
+                <div><small><span data-bind="BANK_NAME"></span> • <span data-bind="BANK_ACC_NAME"></span></small><div class="acc" data-bind="BANK_ACC_NO"></div></div>
+                <button type="button" class="copy" id="btnCopy">📋 คัดลอก</button>
+              </div>
+              <div class="field" style="margin-top:12px">
+                <label class="lbl" for="transferAmount">จำนวน (บาท)</label>
+                <input class="input" id="transferAmount" name="transferAmount" type="text" inputmode="numeric" placeholder="เช่น 10,000" />
+              </div>
+              <div class="field" data-field="slip">
+                <label class="lbl">แนบหลักฐานการโอน <span class="req" id="slipReq" hidden>*</span><span id="slipOpt" style="font-weight:400;color:var(--c-muted)">(ถ้ามี)</span></label>
+                <label class="drop" id="dropZone">
+                  <input type="file" id="slipInput" accept="image/*,application/pdf" />
+                  <span class="d-ico">🧾</span>
+                  <span class="d-main">แตะเพื่อแนบสลิป / ลากไฟล์มาวาง</span>
+                  <span class="d-sub" id="slipHint">รองรับ JPG, PNG, HEIC, PDF</span>
+                </label>
+                <div class="preview" id="slipPreview">
+                  <div class="thumb" id="slipThumb"></div>
+                  <div class="info">
+                    <div class="fname" id="slipName"></div>
+                    <div class="fsize" id="slipSize"></div>
+                    <div class="ok">✓ พร้อมส่ง</div>
+                  </div>
+                  <button type="button" class="rm" id="slipRemove" aria-label="ลบไฟล์">🗑</button>
+                </div>
+                <div class="err-msg" id="slipErr">กรุณาแนบหลักฐานการโอน</div>
+              </div>
+            </div>
+
+            <label class="opt">
+              <input type="checkbox" name="delivery" value="PRODUCT" />
+              <span class="tile"><span class="box">✓</span>
+                <span><span class="t-main">ประสานงานส่งผลิตภัณฑ์ให้โครงการฯ</span><span class="t-sub">ณ <span data-bind="DELIVERY_PLACE"></span></span></span>
+                <span class="emo">🚚</span></span>
+            </label>
+            <div class="sub-fields" id="deliveryDateFields">
+              <div class="field" data-field="productDelivDate">
+                <label class="lbl" for="productDelivDate">ในวันที่ <span class="req">*</span></label>
+                <input class="input" id="productDelivDate" name="productDelivDate" type="date" />
+                <div class="err-msg">กรุณาเลือกวันที่ส่งผลิตภัณฑ์</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="field" style="margin-top:6px">
+          <label class="lbl" for="note">หมายเหตุเพิ่มเติม (ถ้ามี)</label>
+          <textarea class="input" id="note" name="note" placeholder="ข้อความถึงผู้จัดงาน..."></textarea>
+        </div>
+      </section>
+
+      <button class="btn block" id="btnSubmit" type="submit">🚀 ส่งแบบฟอร์ม</button>
+      <footer>ข้อมูลของท่านจะถูกใช้เพื่อการประสานงานโครงการเท่านั้น 🔒</footer>
+    </form>
+  </main>
+
+  <!-- ================= LIGHTBOX ================= -->
+  <div class="overlay lightbox" id="lightbox" role="dialog" aria-modal="true">
+    <button class="x" type="button" aria-label="ปิด">✕</button>
+    <img id="lightboxImg" alt="" />
+  </div>
+
+  <!-- ================= SUCCESS MODAL ================= -->
+  <div class="overlay" id="successModal" role="dialog" aria-modal="true">
+    <div class="modal" id="modalBox">
+      <div class="big">🪷</div>
+      <h2>อนุโมทนาบุญ สาธุ 🙏</h2>
+      <p>บันทึกข้อมูลเรียบร้อยแล้ว</p>
+      <div class="ref" id="refId">TB-XXXXXX-0000</div>
+      <div class="sum" id="sumBox"></div>
+      <button class="btn block" id="btnDone" type="button">กลับหน้าแรก</button>
+    </div>
+  </div>
+
+  <div class="toast" id="toast"></div>
+
+  <script>
+    /* ==========================================================================
+       SET 1 : CONFIG — แก้ค่าได้ที่นี่ที่เดียว
+       ========================================================================== */
+    const CONFIG = {
+      // 👉 วาง URL Web App ของ Google Apps Script (ลงท้าย /exec)
+      API_URL: 'https://script.google.com/macros/s/AKfycbz4lEFy1NEbMlaM6nJWG9BYhRsiQOsv4JZbRbxCm9wqCC1ds68HevxtW-lVGsCiHwas/exec',
+      REQUEST_TIMEOUT_MS: 60000
+    };
+
+    /* ==========================================================================
+       SET 1.1 : UPLOAD — การแนบหลักฐานการโอน (ให้ตรงกับ DRIVE_CONFIG ใน Code.gs)
+       ========================================================================== */
+    const UPLOAD = {
+      REQUIRED_ON_TRANSFER: false,   // true = เลือก "โอนปัจจัย" แล้วต้องแนบสลิป
+      MAX_MB      : 10,              // ขนาดไฟล์สูงสุด
+      MAX_DIM     : 1600,            // ย่อรูปด้านยาวสุดไม่เกินกี่ px (ลดขนาดก่อนส่ง)
+      JPEG_QUALITY: 0.85,
+      TYPES       : ['image/jpeg', 'image/png', 'image/webp', 'image/heic', 'image/heif', 'application/pdf']
+    };
+
+    /* ==========================================================================
+       SET 2 : ข้อมูลแอป / งาน
+       ========================================================================== */
+    const APP = {
+      APP_NAME        : 'ร่วมงานตักบาตรพระหมื่นรูป กาญจนบุรี',
+      EVENT_SHORT     : '19 ธ.ค. 2569 • Sky Walk',
+      EVENT_TITLE     : 'โครงการตักบาตรพระ 10,000 รูป (ฉลองครบ 195 ปี จังหวัดกาญจนบุรี)',
+      EVENT_DATE      : 'วันเสาร์ที่ 19 ธันวาคม พ.ศ. 2569',
+      EVENT_DATE_SHORT: 'ส. 19 ธ.ค. 2569',
+      EVENT_TIME      : '06.00-08.30 น.',
+      EVENT_LOCATION  : 'Sky Walk จังหวัดกาญจนบุรี',
+      BANK_NAME       : 'ธ.กสิกรไทย',
+      BANK_ACC_NAME   : 'ส่งเสริมศีลธรรมกาญจนบุรี',
+      BANK_ACC_NO     : '193-1527025',
+      BANK_LINE       : 'ส่งเสริมศีลธรรมกาญจนบุรี ธ.กสิกรไทย 193-1527025',
+      DELIVERY_PLACE  : 'ศูนย์อบรมเยาวชนกาญจนบุรี',
+      CONTACT         : 'ศูนย์อบรมเยาวชนกาญจนบุรี'
+    };
+
+    /* ==========================================================================
+       SET 3 : รูปภาพหน้า Home (ลิงก์ตรงจาก ibb.co)
+       ========================================================================== */
+    const IMAGES = [
+      { src: 'https://i.ibb.co/YFGdmS9H/image.jpg',  page: 'https://ibb.co/Pv8WKypq', alt: 'โบรชัวร์โครงการตักบาตรพระ 10,000 รูป', tag: '📰 โบรชัวร์' },
+      { src: 'https://i.ibb.co/x8M6XC4s/option.jpg', page: 'https://ibb.co/sJFqbmBP', alt: 'รายละเอียดการร่วมบุญ',               tag: '🎁 Option ร่วมบุญ' }
+    ];
+
+    /* ==========================================================================
+       SET 4 : ตัวเลือก (key ต้องตรงกับ OPTIONS ใน Code.gs)
+       ========================================================================== */
+    const TIERS = [
+      { key: 'FUND_50000', no: '1', amount: 50000, title: 'กองบุญ <b>50,000</b> บาท', benefit: 'ประกาศชื่อ / ผู้แทนถวายไทยธรรมหน้าเวที / โต๊ะตักบาตร', cls: 't1', tag: '👑 VIP', emo: '🏆' },
+      { key: 'FUND_10000', no: '2', amount: 10000, title: 'กองบุญ <b>10,000</b> บาท', benefit: 'กล่องตักบาตร ขนาด L', cls: 't2', emo: '🎁' },
+      { key: 'FUND_5000',  no: '3', amount: 5000,  title: 'กองบุญ <b>5,000</b> บาท',  benefit: 'กล่องตักบาตร ขนาด M', cls: 't3', emo: '🎀' }
+    ];
+    const SUPPORT_EXTRA = { key: 'PRODUCT', title: 'สนับสนุนผลิตภัณฑ์ในเครือ', sub: 'น้ำดื่ม / เครื่องดื่ม / อื่นๆ', emo: '🥤' };
+
+    const ATTEND = [
+      { key: 'SELF',       title: 'ยินดีเข้าร่วมพิธีด้วยตนเอง', emo: '🙋' },
+      { key: 'DELEGATE',   title: 'มอบหมายตัวแทนเข้าร่วมพิธี', sub: 'ระบุชื่อ-นามสกุล ตัวแทน', emo: '🤝' },
+      { key: 'NOT_ATTEND', title: 'ไม่สามารถมาร่วมงานได้', sub: 'แต่มีความประสงค์ร่วมสนับสนุนกองบุญ', emo: '💌' }
+    ];
+
+    /* ==========================================================================
+       HELPERS
+       ========================================================================== */
+    const $  = (s, el = document) => el.querySelector(s);
+    const $$ = (s, el = document) => [...el.querySelectorAll(s)];
+    const fmt = n => Number(n || 0).toLocaleString('th-TH');
+    const esc = s => String(s ?? '').replace(/[&<>"']/g, c => ({ '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;' }[c]));
+
+    function toast(msg, isErr = false) {
+      const t = $('#toast');
+      t.textContent = msg; t.classList.toggle('error', isErr); t.classList.add('show');
+      clearTimeout(t._h); t._h = setTimeout(() => t.classList.remove('show'), 3200);
+    }
+
+    /* ==========================================================================
+       RENDER
+       ========================================================================== */
+    function bindTexts() {
+      $$('[data-bind]').forEach(el => { const k = el.dataset.bind; if (APP[k] !== undefined) el.textContent = APP[k]; });
+      document.title = APP.APP_NAME;
+    }
+
+    function renderGallery() {
+      $('#gallery').innerHTML = IMAGES.map((img, i) => `
+        <figure data-i="${i}" tabindex="0" aria-label="ขยายภาพ ${esc(img.alt)}">
+          <img src="${img.src}" alt="${esc(img.alt)}" loading="${i ? 'lazy' : 'eager'}"
+               onerror="this.onerror=null;this.src='${img.page}';" />
+          <figcaption><span class="chip">${img.tag}</span></figcaption>
+        </figure>`).join('');
+      $$('#gallery figure').forEach(f => {
+        const open = () => openLightbox(IMAGES[f.dataset.i]);
+        f.addEventListener('click', open);
+        f.addEventListener('keydown', e => (e.key === 'Enter' || e.key === ' ') && (e.preventDefault(), open()));
+      });
+    }
+
+    function renderTiers() {
+      $('#tierList').innerHTML = TIERS.map(t => `
+        <div class="tier ${t.cls}">
+          ${t.tag ? `<span class="tag">${t.tag}</span>` : ''}
+          <div class="num">${t.no}</div>
+          <div><h3>${t.title}</h3><p>${t.benefit}</p></div>
+        </div>`).join('');
+    }
+
+    function optTile({ type, name, key, title, sub, emo }) {
+      return `
+        <label class="opt">
+          <input type="${type}" name="${name}" value="${key}" />
+          <span class="tile"><span class="box">✓</span>
+            <span><span class="t-main">${title}</span>${sub ? `<span class="t-sub">${sub}</span>` : ''}</span>
+            <span class="emo">${emo || ''}</span>
+          </span>
+        </label>`;
+    }
+
+    function renderOptions() {
+      const sup = $('#supportOpts');
+      sup.innerHTML = TIERS.map(t => optTile({ type: 'checkbox', name: 'support', key: t.key, title: t.title, sub: t.benefit, emo: t.emo })).join('')
+                    + optTile({ type: 'checkbox', name: 'support', ...SUPPORT_EXTRA });
+      // ย้ายช่องกรอกผลิตภัณฑ์ให้อยู่ใต้ตัวเลือก "ผลิตภัณฑ์"
+      sup.appendChild($('#productFields'));
+
+      const att = $('#attendOpts');
+      att.innerHTML = ATTEND.map(a => optTile({ type: 'radio', name: 'attend', ...a })).join('');
+      // ย้ายช่องชื่อตัวแทนให้อยู่ใต้ "มอบหมายตัวแทน"
+      att.children[1].after($('#delegateFields'));
+    }
+
+    /* ==========================================================================
+       NAVIGATION
+       ========================================================================== */
+    function show(view) {
+      $$('.view').forEach(v => v.classList.toggle('active', v.id === view));
+      $('#btnBack').style.display = view === 'viewForm' ? 'inline-flex' : 'none';
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+      if (view === 'viewForm') history.replaceState(null, '', '#form');
+      else history.replaceState(null, '', location.pathname);
+    }
+
+    function openLightbox(img) {
+      $('#lightboxImg').src = img.src; $('#lightboxImg').alt = img.alt;
+      $('#lightbox').classList.add('show');
+    }
+
+    /* ==========================================================================
+       FORM LOGIC
+       ========================================================================== */
+    const form = () => $('#regForm');
+    const checked = name => $$(`input[name="${name}"]:checked`).map(i => i.value);
+
+    function syncConditional() {
+      const sup = checked('support');
+      const del = checked('delivery');
+      const att = (checked('attend')[0] || '');
+
+      $('#productFields').classList.toggle('show', sup.includes('PRODUCT'));
+      $('#delegateFields').classList.toggle('show', att === 'DELEGATE');
+      $('#transferFields').classList.toggle('show', del.includes('TRANSFER'));
+      $('#deliveryDateFields').classList.toggle('show', del.includes('PRODUCT'));
+
+      const total = TIERS.filter(t => sup.includes(t.key)).reduce((s, t) => s + t.amount, 0);
+      $('#totalBox').hidden = total === 0;
+      $('#totalAmount').textContent = fmt(total) + ' บาท';
+
+      // เติมยอดโอนอัตโนมัติ (ถ้ายังไม่ได้แก้เอง)
+      const ta = $('#transferAmount');
+      if (!ta.dataset.touched) ta.value = total ? fmt(total) : '';
+
+      updateProgress();
+    }
+
+    function updateProgress() {
+      const f = form();
+      const steps = [
+        f.company.value.trim(), f.coordinator.value.trim(), validPhone(f.phone.value),
+        checked('support').length, checked('attend').length, checked('delivery').length
+      ];
+      const pct = Math.round(steps.filter(Boolean).length / steps.length * 100);
+      $('#progressBar').style.width = pct + '%';
+    }
+
+    const validPhone = v => /^[0-9+\-\s]{9,15}$/.test(v.trim()) && v.replace(/\D/g, '').length >= 9;
+
+    function setErr(field, on) {
+      const el = $(`[data-field="${field}"]`);
+      if (!el) return;
+      el.classList.toggle('has-err', on);
+      const input = $('.input', el); if (input && el.dataset.field === field && input.closest('[data-field]') === el) input.classList.toggle('err', on);
+    }
+
+    function validate() {
+      const f = form();
+      const sup = checked('support'), att = checked('attend')[0], del = checked('delivery');
+      const rules = {
+        company         : !f.company.value.trim(),
+        coordinator     : !f.coordinator.value.trim(),
+        phone           : !validPhone(f.phone.value),
+        support         : sup.length === 0,
+        productDetail   : sup.includes('PRODUCT') && !f.productDetail.value.trim(),
+        attend          : !att,
+        delegateName    : att === 'DELEGATE' && !f.delegateName.value.trim(),
+        productDelivDate: del.includes('PRODUCT') && !f.productDelivDate.value,
+        slip            : UPLOAD.REQUIRED_ON_TRANSFER && del.includes('TRANSFER') && !slip
+      };
+      let first = null;
+      Object.entries(rules).forEach(([k, bad]) => { setErr(k, bad); if (bad && !first) first = k; });
+      if (first) {
+        const el = $(`[data-field="${first}"]`);
+        el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        const inp = $('input:not([type=checkbox]):not([type=radio])', el); inp && setTimeout(() => inp.focus({ preventScroll: true }), 350);
+        toast('กรุณากรอกข้อมูลที่มีเครื่องหมาย * ให้ครบ', true);
+        return false;
+      }
+      return true;
+    }
+
+    function collect() {
+      const f = form();
+      return {
+        company: f.company.value.trim(),
+        coordinator: f.coordinator.value.trim(),
+        phone: f.phone.value.trim(),
+        support: checked('support'),
+        productDetail: f.productDetail.value.trim(),
+        productValue: f.productValue.value.trim(),
+        attend: checked('attend')[0] || '',
+        delegateName: f.delegateName.value.trim(),
+        followers: Math.max(0, parseInt(f.followers.value, 10) || 0),
+        delivery: checked('delivery'),
+        transferAmount: f.transferAmount.value.replace(/[^\d.]/g, ''),
+        productDelivDate: f.productDelivDate.value,
+        note: f.note.value.trim(),
+        userAgent: navigator.userAgent,
+        slip: (checked('delivery').includes('TRANSFER') && slip)
+          ? { name: slip.name, mimeType: slip.mimeType, data: slip.data } : null
+      };
+    }
+
+    async function api(payload) {
+      const ctrl = new AbortController();
+      const timer = setTimeout(() => ctrl.abort(), CONFIG.REQUEST_TIMEOUT_MS);
+      try {
+        // ใช้ text/plain เพื่อเลี่ยง CORS preflight ของ Apps Script
+        const res = await fetch(CONFIG.API_URL, {
+          method: 'POST',
+          headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+          body: JSON.stringify(payload),
+          redirect: 'follow',
+          signal: ctrl.signal
+        });
+        return await res.json();
+      } finally { clearTimeout(timer); }
+    }
+
+    async function onSubmit(e) {
+      e.preventDefault();
+      if (!validate()) return;
+
+      if (CONFIG.API_URL.includes('XXXX')) { toast('⚠️ ยังไม่ได้ตั้งค่า API_URL ใน index.html', true); return; }
+
+      const btn = $('#btnSubmit');
+      const old = btn.innerHTML;
+      const withSlip = checked('delivery').includes('TRANSFER') && !!slip;
+      btn.disabled = true;
+      btn.innerHTML = `<span class="spinner"></span> ${withSlip ? 'กำลังอัปโหลดหลักฐานและส่งข้อมูล...' : 'กำลังส่งข้อมูล...'}`;
+
+      try {
+        const res = await api({ action: 'submit', data: collect() });
+        if (!res.ok) throw new Error(res.message || 'บันทึกไม่สำเร็จ');
+        showSuccess(res);
+      } catch (err) {
+        toast(err.name === 'AbortError' ? 'หมดเวลาเชื่อมต่อ กรุณาลองใหม่' : ('❌ ' + err.message), true);
+      } finally {
+        btn.disabled = false; btn.innerHTML = old;
+      }
+    }
+
+    function showSuccess(res) {
+      const s = res.summary || {};
+      $('#refId').textContent = res.refId || '-';
+      $('#sumBox').innerHTML = `
+        <div>🏢 <b>${esc(s.company)}</b></div>
+        <div>💝 ${esc(s.supportList)}</div>
+        ${s.supportAmount ? `<div>💰 ยอดกองบุญ ${fmt(s.supportAmount)} บาท</div>` : ''}
+        <div>🙏 ${esc(s.attend)}</div>
+        ${s.hasSlip ? `<div>🧾 แนบหลักฐานการโอนเรียบร้อย</div>` : ''}
+        <div style="margin-top:6px;color:var(--c-muted);font-size:12.5px">📸 แคปหน้าจอนี้เก็บไว้เป็นหลักฐานได้เลย</div>`;
+      $('#successModal').classList.add('show');
+      confetti();
+    }
+
+    function confetti() {
+      const box = $('#modalBox');
+      const colors = ['#A7C7E7', '#C9C6F5', '#BDEBD9', '#FFD9C7', '#F6C86B', '#6FA8DC'];
+      for (let i = 0; i < 40; i++) {
+        const c = document.createElement('span');
+        c.className = 'confetti';
+        c.style.left = Math.random() * 100 + '%';
+        c.style.background = colors[i % colors.length];
+        c.style.animationDelay = Math.random() * .6 + 's';
+        box.appendChild(c);
+        setTimeout(() => c.remove(), 3000);
+      }
+    }
+
+    function resetForm() {
+      form().reset();
+      clearSlip();
+      $('#transferAmount').dataset.touched = '';
+      $$('.has-err').forEach(el => el.classList.remove('has-err'));
+      $$('.input.err').forEach(el => el.classList.remove('err'));
+      syncConditional();
+    }
+
+    /* ==========================================================================
+       SLIP UPLOAD — แนบหลักฐานการโอน
+       ========================================================================== */
+    let slip = null;   // { name, mimeType, data(base64), size, previewUrl }
+
+    const fmtSize = b => b >= 1048576 ? (b / 1048576).toFixed(2) + ' MB' : Math.max(1, Math.round(b / 1024)) + ' KB';
+
+    function guessType(file) {
+      if (file.type) return file.type.toLowerCase();
+      const ext = (file.name.split('.').pop() || '').toLowerCase();
+      return { jpg: 'image/jpeg', jpeg: 'image/jpeg', png: 'image/png', webp: 'image/webp', heic: 'image/heic', heif: 'image/heif', pdf: 'application/pdf' }[ext] || '';
+    }
+
+    const readAsDataURL = blob => new Promise((ok, fail) => {
+      const r = new FileReader(); r.onload = () => ok(r.result); r.onerror = fail; r.readAsDataURL(blob);
+    });
+
+    // ย่อรูปให้เล็กลงก่อนส่ง (ถ้าเบราว์เซอร์ถอดรหัสรูปไม่ได้ เช่น HEIC บางเครื่อง → ส่งไฟล์เดิม)
+    function compressImage(file) {
+      return new Promise(resolve => {
+        const url = URL.createObjectURL(file);
+        const img = new Image();
+        img.onload = () => {
+          const scale = Math.min(1, UPLOAD.MAX_DIM / Math.max(img.width, img.height));
+          const w = Math.round(img.width * scale), h = Math.round(img.height * scale);
+          const cv = document.createElement('canvas'); cv.width = w; cv.height = h;
+          const ctx = cv.getContext('2d'); ctx.fillStyle = '#fff'; ctx.fillRect(0, 0, w, h); ctx.drawImage(img, 0, 0, w, h);
+          URL.revokeObjectURL(url);
+          cv.toBlob(b => resolve(b && b.size < file.size ? b : file), 'image/jpeg', UPLOAD.JPEG_QUALITY);
+        };
+        img.onerror = () => { URL.revokeObjectURL(url); resolve(file); };
+        img.src = url;
+      });
+    }
+
+    async function handleSlipFile(file) {
+      if (!file) return;
+      const type = guessType(file);
+      if (!UPLOAD.TYPES.includes(type)) { toast('รองรับเฉพาะรูปภาพ (JPG/PNG/HEIC) หรือ PDF', true); return; }
+
+      const drop = $('#dropZone');
+      drop.querySelector('.d-main').textContent = '⏳ กำลังเตรียมไฟล์...';
+      try {
+        let blob = file, mime = type;
+        if (type.startsWith('image/')) {
+          blob = await compressImage(file);
+          if (blob !== file) mime = 'image/jpeg';
+        }
+        if (blob.size > UPLOAD.MAX_MB * 1048576) { toast(`ไฟล์ใหญ่เกิน ${UPLOAD.MAX_MB} MB`, true); return; }
+
+        const dataUrl = await readAsDataURL(blob);
+        if (slip && slip.previewUrl) URL.revokeObjectURL(slip.previewUrl);
+        slip = {
+          name: file.name, mimeType: mime, size: blob.size,
+          data: dataUrl.split(',')[1],
+          previewUrl: mime.startsWith('image/') ? URL.createObjectURL(blob) : ''
+        };
+        renderSlip();
+        setErr('slip', false);
+      } catch (e) {
+        toast('อ่านไฟล์ไม่สำเร็จ กรุณาลองใหม่', true);
+      } finally {
+        drop.querySelector('.d-main').textContent = 'แตะเพื่อแนบสลิป / ลากไฟล์มาวาง';
+        $('#slipInput').value = '';
+      }
+    }
+
+    function renderSlip() {
+      const has = !!slip;
+      $('#dropZone').hidden = has;
+      $('#slipPreview').classList.toggle('show', has);
+      if (!has) return;
+      $('#slipThumb').innerHTML = slip.previewUrl ? `<img src="${slip.previewUrl}" alt="สลิป" />` : '📄';
+      $('#slipName').textContent = slip.name;
+      $('#slipSize').textContent = fmtSize(slip.size) + (slip.mimeType === 'application/pdf' ? ' • PDF' : '');
+    }
+
+    function clearSlip() {
+      if (slip && slip.previewUrl) URL.revokeObjectURL(slip.previewUrl);
+      slip = null; $('#slipInput').value = ''; renderSlip();
+    }
+
+    function initSlip() {
+      const input = $('#slipInput'), drop = $('#dropZone');
+      $('#slipReq').hidden = !UPLOAD.REQUIRED_ON_TRANSFER;
+      $('#slipOpt').hidden = UPLOAD.REQUIRED_ON_TRANSFER;
+      $('#slipHint').textContent = `รองรับ JPG, PNG, HEIC, PDF • ไม่เกิน ${UPLOAD.MAX_MB} MB`;
+
+      input.addEventListener('change', e => { e.stopPropagation(); handleSlipFile(input.files[0]); });
+      ['dragenter', 'dragover'].forEach(ev => drop.addEventListener(ev, e => { e.preventDefault(); drop.classList.add('drag'); }));
+      ['dragleave', 'drop'].forEach(ev => drop.addEventListener(ev, () => drop.classList.remove('drag')));
+      drop.addEventListener('drop', e => { e.preventDefault(); handleSlipFile(e.dataTransfer.files[0]); });
+
+      $('#slipRemove').addEventListener('click', clearSlip);
+      $('#slipThumb').addEventListener('click', () => slip && slip.previewUrl && openLightbox({ src: slip.previewUrl, alt: 'หลักฐานการโอน' }));
+    }
+
+    /* ==========================================================================
+       INIT
+       ========================================================================== */
+    document.addEventListener('DOMContentLoaded', () => {
+      bindTexts();
+      renderGallery();
+      renderTiers();
+      renderOptions();
+      bindTexts(); // bind อีกรอบสำหรับ element ที่ render ใหม่
+
+      $('#btnJoin').addEventListener('click', () => show('viewForm'));
+      $('#btnBack').addEventListener('click', () => show('viewHome'));
+
+      $('#lightbox').addEventListener('click', () => $('#lightbox').classList.remove('show'));
+      document.addEventListener('keydown', e => e.key === 'Escape' && $('#lightbox').classList.remove('show'));
+
+      const f = form();
+      f.addEventListener('change', e => {
+        syncConditional();
+        const fld = e.target.closest('[data-field]'); if (fld) setErr(fld.dataset.field, false);
+      });
+      f.addEventListener('input', e => {
+        if (e.target.id === 'transferAmount') {
+          e.target.dataset.touched = '1';
+          const n = e.target.value.replace(/[^\d]/g, '');
+          e.target.value = n ? fmt(n) : '';
+        }
+        if (e.target.id === 'phone') e.target.value = e.target.value.replace(/[^\d+\-\s]/g, '');
+        const fld = e.target.closest('[data-field]'); if (fld) setErr(fld.dataset.field, false);
+        updateProgress();
+      });
+      f.addEventListener('submit', onSubmit);
+
+      $$('.stepper button').forEach(b => b.addEventListener('click', () => {
+        const inp = $('#followers');
+        inp.value = Math.max(0, Math.min(999, (parseInt(inp.value, 10) || 0) + Number(b.dataset.step)));
+      }));
+
+      $('#btnCopy').addEventListener('click', async () => {
+        const no = APP.BANK_ACC_NO.replace(/\D/g, '');
+        try { await navigator.clipboard.writeText(no); toast('📋 คัดลอกเลขบัญชีแล้ว ' + APP.BANK_ACC_NO); }
+        catch { toast('เลขบัญชี: ' + APP.BANK_ACC_NO); }
+      });
+
+      $('#btnDone').addEventListener('click', () => {
+        $('#successModal').classList.remove('show');
+        resetForm();
+        show('viewHome');
+      });
+
+      if (location.hash === '#form') show('viewForm');
+      initSlip();
+      syncConditional();
+    });
+  </script>
+</body>
+</html>
